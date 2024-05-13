@@ -1,6 +1,5 @@
 let deckId = ""
-//we are using a global variable 'deckId' as opposed to making it local, so we can use it later
-//upon page load, the url parameter within fetch will grab us a new deck of cards
+
 fetch('https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
       .then(res => res.json()) // parse response as JSON
       .then(data => {
@@ -33,8 +32,7 @@ function drawTwo(){
           console.log(`error ${err}`)
       });
 }
-//a helper function to convert the non-number cards to a numerical value
-//v stands for value
+
 function convertToNum(v){
   if(v === 'ACE'){
     return 14
@@ -45,6 +43,6 @@ function convertToNum(v){
   }else if(v === 'JACK'){
     return 11
   }else{
-    return Number(v) //the value to always be converted from string to number
+    return Number(v)
   }
 }
